@@ -19,7 +19,11 @@ def detect_faces(image, debug=False):
             cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.imshow("Detected Faces", image)
         cv2.waitKey(0)
-    return faces
+
+    result = []
+    for face in faces:
+        result.append([face.left(), face.top(), face.width(), face.height()])
+    return result
 
 
 if __name__ == "__main__":

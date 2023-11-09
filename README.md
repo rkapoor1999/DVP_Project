@@ -1,6 +1,9 @@
-Project for CSE509
+# CSE509 Project
 
-Team 29:
-Kuriakose Eldho
-Raghav Kapoor
-Jisoo Lee
+## Face and Information Content Detection for Automated Blurring
+
+Team members:
+
+- Kuriakose Eldho
+- Raghav Kapoor
+- Jisoo Lee
