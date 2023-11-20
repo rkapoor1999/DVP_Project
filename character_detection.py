@@ -20,7 +20,7 @@ def textInImage(img):
         bbox , text, score = t
         bbox = [[int(i) for i in sublist] for sublist in bbox]
         x, y = bbox[0]
-        w, h = q[1][0]-q[0][0], q[2][1]-q[1][1]
+        w, h = bbox[1][0]-bbox[0][0], bbox[2][1]-bbox[1][1]
         if score > threshold:
             coordinates.append([x,y,w,h])
             #cv2.rectangle(img,(x, y), (x+w, y+h),(0,255,0),5)
