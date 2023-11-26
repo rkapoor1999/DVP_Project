@@ -24,6 +24,20 @@ def detect_faces(image, debug=False):
     for face in faces:
         result.append([face.left(), face.top(), face.width(), face.height()])
     return result
+    
+def detect_faces_tolist(image):
+    flist = []
+    detector = dlib.get_frontal_face_detector()
+
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    faces = detector(gray)
+
+   
+    for face in faces:
+        x, y, w, h = face.left(), face.top(), face.width(), face.height()
+        flist.append([x,y,w,h])   
+        
+    return flist
 
 
 if __name__ == "__main__":
