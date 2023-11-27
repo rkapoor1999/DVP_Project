@@ -7,3 +7,7 @@ Team members:
 - Kuriakose Eldho
 - Raghav Kapoor
 - Jisoo Lee
+
+How to run:
+
+`python main.py <input_video_path> <output_video_path>`

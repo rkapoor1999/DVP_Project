@@ -1,11 +1,11 @@
-import cv2
+# import cv2
 import easyocr
-import matplotlib.pyplot as plt
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
 
 def textInImage(img):
-    image_path = img
-    img = cv2.imread(image_path)
+    # image_path = img
+    # img = cv2.imread(image_path)
 
     # instanace text detector
     reader = easyocr.Reader(["en"],gpu=False)
