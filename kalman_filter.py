@@ -42,7 +42,8 @@ def kalman_filter(coordinates, frame_count):
             measurement = np.matrix(np.array([c+w/2, r+h/2], dtype='float64')).transpose()
             posterior = kalman_filters[object_id].correct(measurement)
             pt[object_id] = (frame_count, int(posterior[0]), int(posterior[1]), pt[object_id][3])
-            adjusted_coordinates.append([pt[object_id][1]-w//2, pt[object_id][2]-h//2, pt[object_id][1]+w//2,pt[object_id][2]+h//2])
+            # adjusted_coordinates.append([pt[object_id][1]-w//2, pt[object_id][2]-h//2, pt[object_id][1]+w//2,pt[object_id][2]+h//2])
+            adjusted_coordinates.append([c, r, c+w, r+h])
     else:
         print("CASE2: there are missing faces. Use Kalman:")
         for object_id in range(most_frequent_num):
