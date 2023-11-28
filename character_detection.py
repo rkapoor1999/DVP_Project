@@ -8,7 +8,7 @@ def textInImage(img):
     # img = cv2.imread(image_path)
 
     # instanace text detector
-    reader = easyocr.Reader(["en"],gpu=False)
+    reader = easyocr.Reader(["en"],gpu=True)
 
     #detect text on image
     text_ = reader.readtext(img)
