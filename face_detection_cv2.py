@@ -16,12 +16,14 @@ def detect_faces(image):
 
     for i in range(0, detections.shape[2]):
         confidence = detections[0, 0, i, 2]
-        if confidence < .5:
+        if confidence < .9:
             continue
 
         box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
         (startX, startY, endX, endY) = box.astype("int")
-        result.append([startX, startY, endX-startX, endY-startY])
+        x_ext = (endX-startX)//4
+        y_ext = (endY-startY)//4
+        result.append([startX-x_ext, startY-y_ext, endX-startX+x_ext, endY-startY+y_ext])
     return result
 
 

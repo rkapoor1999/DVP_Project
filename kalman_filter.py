@@ -20,6 +20,7 @@ def initialize_kalman_filter(c,r,w,h):
     kalman_filter.predict()
     return kalman_filter
 
+
 def kalman_filter(coordinates, frame_count):
     coordinates = sorted(coordinates, key=lambda box: box[0])
     for object_id, face in enumerate(coordinates):
@@ -36,7 +37,7 @@ def kalman_filter(coordinates, frame_count):
     
     adjusted_coordinates = []
     if len(coordinates)>=most_frequent_num:
-        print("CASE1: detected all!!!!")
+        # print("CASE1: detected all!!!!")
         for object_id, face in enumerate(coordinates):
             c,r,w,h = face  
             measurement = np.matrix(np.array([c+w/2, r+h/2], dtype='float64')).transpose()
@@ -45,7 +46,7 @@ def kalman_filter(coordinates, frame_count):
             # adjusted_coordinates.append([pt[object_id][1]-w//2, pt[object_id][2]-h//2, pt[object_id][1]+w//2,pt[object_id][2]+h//2])
             adjusted_coordinates.append([c, r, c+w, r+h])
     else:
-        print("CASE2: there are missing faces. Use Kalman:")
+        # print("CASE2: there are missing faces. Use Kalman:")
         for object_id in range(most_frequent_num):
             w,h = pt[object_id][3]  
             prediction = kalman_filters[object_id].predict()
